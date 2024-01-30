@@ -1,16 +1,16 @@
 # Human-in-the-Loop Decision Support in Process Control Rooms Dataset
 
 ## Overview
-This repository contains a comprehensive dataset aimed at assessing cognitive states, workload, situational awareness, stress, and fatigue in human-in-the-loop process control rooms. The dataset includes objective and subjective measures from various data collection tools such as NASA-TLX, SART, eye tracking, EEG, Health Monitoring Watch, surveys, and think-aloud situational awareness assessments. Additionally, it incorporates data from a simulation of a formaldehyde production plant based on participants' interactions in a controlled control room experimental setting.
+This repository contains a comprehensive dataset to assess cognitive states, workload, situational awareness, stress, and performance in human-in-the-loop process control rooms. The dataset includes objective and subjective measures from various data collection tools such as NASA-TLX, SART, eye tracking, EEG, Health Monitoring Watch, surveys, and think-aloud situational awareness assessments. It is based on an experimental study of a formaldehyde production plant based on participants' interactions in a controlled control room experimental setting.
 
 ## Purpose
-The primary objective of this dataset is to compare the performance and safety outcomes of different groups of participants exposed to varying decision support tools. These tools include alarm prioritization, paper-based vs. digitized screen-based procedures, and an AI recommendation system. Statistical analysis was performed to compare the outcomes among the groups.
+The study compared three different setups of human system interfaces in four human-in-the-loop (HITL) configurations, incorporating two alarm design formats (Prioritised vs non-prioritised) and three procedural guidance setups (e.g. one presenting paper procedures, one offering digitised screen-based procedures, and lastly an AI-based procedural guidance system). 
 
 ## Key Features
 - **Subject Area:** Chemical Engineering, Control and Safety Engineering, Human Factors and Ergonomics, Human-Computer Interaction, and Artificial Intelligence
 - **Data Format:** Raw, Analyzed, Filtered
 - **Type of Data:** CSV File (.csv), Matlab File (.mat), Excel (.xlsx), Table
-- **Data Collection:** The dataset contains behavioral, cognitive, and performance data from 92 participants, including system data under each participant from three scenarios, each simulating a typical control room monitoring, alarm handling, planning, and intervention tasks and subtasks. The participants consented to participate on the test day, after which the researchers trained them. They performed functions under three scenarios, each lasting 15 - 18 minutes. During these tests, the participant wore a watch for health monitoring, including an eye tracker. They were asked situational awareness questions based on the SPAM methodology at specific periods within 15 minutes, especially at the 6th, 8th, and 12th minutes. These questions assessed the three levels of situational awareness: perception, comprehension, and projection. This feedback collection process on situational awareness differed for one of the groups that used an AI-based decision support system. The question for this group was asked right after specific actions. Therefore, for the overall study, the following performance-shaping factors are considered: type of decision support system, alarm design, procedure format, AI support, communication, situational awareness, cognitive workload, interface design, experience/training, task complexity, and stress. In both cases, communication was excluded as a factor considered in the first and second scenarios based on this absence. The data collected was normalized using the Min-Max normalization.
+- **Data Collection:** The dataset contains behavioural, cognitive, and performance data from 92 participants, including system data under each participant from three scenarios, each simulating a typical control room monitoring, alarm handling, planning, and intervention tasks and subtasks. The participants consented to participate on the test day, after which the researchers trained them. They performed tasks under three scenarios, each lasting 15 - 18 minutes. During these tests, the participant wore a watch for health monitoring, including an eye tracker. They were asked situational awareness questions based on the SPAM methodology at specific periods within 15 minutes, especially at the 6th, 8th, and 12th minutes. These questions assessed the three levels of situational awareness: perception, comprehension, and projection. This feedback collection process on situational awareness differed for one of the groups that used an AI-based decision support system. The question for this group was asked right after specific actions. Therefore, for the overall study, the following performance-shaping factors are considered: type of decision support system (alarm display design, procedure format, AI support, interface design), communication, situational awareness, cognitive workload, experience/training, task complexity, and stress. In both cases, communication was excluded as a factor considered in the first and second scenarios based on this absence. The data collected was normalized using the Min-Max normalization.
 
 ## Potential Applications
 The dataset provides an opportunity for various applications, including:
@@ -24,7 +24,7 @@ The dataset provides an opportunity for various applications, including:
 The dataset is instrumental for researchers, decision-makers, system engineers, human factor engineers, and teams developing guidelines and standards. It is also applicable for validating proposed solutions for the industry and for researchers in similar or close domains.
 
 # Data Structure
-he concatenated Excel file for the dataset may include the following detailed data:
+The concatenated Excel file for the dataset may include the following detailed data:
 
 1. **Demographic and Educational Background Data:**
    - Participant Identifier: A unique alphanumeric code assigned to each participant for anonymity and tracking purposes.
@@ -38,8 +38,8 @@ he concatenated Excel file for the dataset may include the following detailed da
    - Participant Identifier: Unique codes for participants (e.g., P04, P06), maintaining anonymity while allowing for individual analysis.
    - Group Assignment: Indicates the experimental group (e.g., G4, G3, G2, G1) to which participants belonged, reflecting different levels of decision support in the simulation.
    - Scenario Engagement: Identifies the specific scenarios (e.g., S1, S2, S3) each participant encountered, representing diverse challenges within the control room simulation.
-   - SPAM Metrics: Participant ratings across three dimensions of the SPAM questionnaire - Monitoring, Planning, and Intervention, on a scale typically from 1 to 5.
-   - SPAM Index: Composite scores derived from the SPAM, indicating overall situation awareness levels experienced by participants.
+   - SPAM Metrics: Participant ratings across three dimensions of the SPAM questionnaire - Perception, Understanding, and Projection, on a scale typically from 1 to 5.
+   - SPAM Index: Composite scores derived from the SPAM, indicating overall situation awareness levels experienced by participants. Calculated as the average of the score on perception, understanding and projection.
 
 3. **NASA-TLX Responses:**
    - Participant Identifier: A unique alphanumeric code assigned to each participant for anonymity and tracking purposes.
@@ -50,7 +50,9 @@ he concatenated Excel file for the dataset may include the following detailed da
 4. **SART Data:**
    - Participant Identifier: Unique codes for participants (e.g., P04, P06), maintaining anonymity while allowing for individual analysis.
    - Group Assignment: Indicates the experimental group (e.g., G1) to which participants belonged, reflecting different levels of decision support in the simulation.
-   - SART Metrics: Participants' responses to the Situation Awareness Rating Technique (SART) questionnaire, capturing metrics reflecting the participants' situation awareness in different simulated control room scenarios.
+   - SART Metrics: Participants' responses to the Situation Awareness Rating Technique (SART) questionnaire, capturing metrics reflecting the participants' situation awareness. It is calculated using the equation U - (D - S). Situation Understanding (U) comprises 
+     Information Quantity, Information Quality, and Familiarity. Situation demand (D) includes the situation's Instability, Complexity, and Variability. At the same time, the Supply of attentional resources (S) comprises Arousal, Concentration, Division of Attention, 
+     and Spare Capacity.
 
 5. **AI Decision Support System Feedback:**
    - Participant Identifier: A unique alphanumeric code assigned to each participant for anonymity and tracking purposes.
@@ -61,9 +63,10 @@ he concatenated Excel file for the dataset may include the following detailed da
 6. **Performance Metrics:**
    - Participant Identifier: A unique alphanumeric code assigned to each participant for anonymity and tracking purposes.
    - Scenario Engagement: Details of the specific scenario (e.g., S1, S2, S3) each participant encountered, representing various challenges in the control room environment.
-   - Task-Specific Performance Measures: Data capturing the participants' experiences and performance across different scenarios in a control room simulation, including task-specific performance measures and outcomes related to decision-making processes in safety-critical environments.
+   - Task-Specific Performance Measures: Data capturing the participants' experiences and performance across different scenarios in a control room simulation, including task-specific performance measures and outcomes related to decision-making processes in safety- 
+     critical environments.
 
-This detailed breakdown provides a comprehensive view of the specific data elements that could be included in the concatenated Excel file, allowing for thorough analysis and exploration of the participants' experiences, cognitive states, workload, and decision-making processes in the simulated control room environments.
+This detailed breakdown provides a comprehensive view of the specific data elements that could be included in the concatenated Excel file, allowing for thorough analysis and exploration of the participants' experiences, cognitive states, workload, and decision-making processes in control room environments.
 
 ## Citation
-If you use this dataset in your research or publication, please cite the article.
+Please cite the article if you use this dataset in your research or publication.
